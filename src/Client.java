@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,7 +36,8 @@ public class Client {
         try {
             System.out.println(in.readLine());
             System.out.println(in.readLine());
-            out.println("Magnus");
+            String name = JOptionPane.showInputDialog("skriv ditt namn", null);
+            out.println(name);
             System.out.println(in.readLine());
         } catch (IOException e) {
             e.printStackTrace();
