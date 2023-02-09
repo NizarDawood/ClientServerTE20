@@ -41,14 +41,14 @@ public class Client {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Client me = new Client("10.70.45.159", 1234);
         me.getStreams();
         ListenerThread l = new ListenerThread(me.in, System.out);
         Thread listener = new Thread(l);
         listener.start();
         me.runProtocol();
-        listener.stop();
+        listener.join();
         me.shutDown();
     }
 

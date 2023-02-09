@@ -50,7 +50,7 @@ public class Server {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Server s = new Server(1234);
         s.acceptClient();
         s.getStreams();
@@ -58,7 +58,7 @@ public class Server {
         Thread listener = new Thread(l);
         listener.start();
         s.runProtocol();
-        listener.stop();
+        listener.join();
         s.shutdown();
     }
 
