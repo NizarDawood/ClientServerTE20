@@ -42,7 +42,7 @@ public class Client {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Client me = new Client("10.70.45.159", 1234);
+        Client me = new Client("10.80.45.207", 1234);
         me.getStreams();
         ListenerThread l = new ListenerThread(me.in, System.out);
         Thread listener = new Thread(l);
