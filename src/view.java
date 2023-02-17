@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +10,23 @@ public class view {
     private JTextField textField1;
     private JButton button1;
     private JPanel panel;
+
+    public view() {
+        button2.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+               textField1.setText(textField1.getText());
+            }
+        });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              textField2.setText(textField2.getText());
+
+            }
+        });
+    }
 
     public JFrame getFrame() {
         return frame;
