@@ -7,7 +7,7 @@ typer av nätverksprogram. Byt view till ett schackbräde och bygg ut modellen t
 ## Grundkrav
 De två programmen ska ha en tydligt uppdelad struktur där View (GUIt) ska vara ett enkelt Swingfönster med de komponenter 
 och funktioner som behövs för att lösa uppgiften. I Modellen ska all kod som gör något finnas. Viktigt är att allt som har 
-med Sockets och BufferedReader/PrintWriter finns här. Controllerns uppgift är att sköta kommunikationen mellan View och Model.
+med Sockets och BufferedReader/PrintWriter finns här. Controllerns uppgift är att sköta kommunikationen mellan View och client.Model.
 
 Ditt program ska kunna göra
 * Ansluta en klient till en server
@@ -18,7 +18,7 @@ Ditt program ska kunna göra
 Det måste finnas ett sätt att ange ip och port för klienten innan socketen skapas. Fundera på var informationen ska komma 
 ifrån. Från guit eller ska det anges innan model och view skapas. 
 
-Eftersom inkommande trafik landar i Model finns det inget naturligt sätt för controllern att veta när det är dags att hämta 
+Eftersom inkommande trafik landar i client.Model finns det inget naturligt sätt för controllern att veta när det är dags att hämta 
 information från modellen och presentera den i View. Finns det en renderingsloop som i game-of-life är detta inget problem men 
 annars kan ni böja lite på reglerna och tillåta att modellen talar om för kontrollern att det finns ny information.
 

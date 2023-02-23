@@ -1,3 +1,4 @@
+#chat
 ###CS1
 jag ska först bygga en chatt där man sicker medelanden 
 och sen ett enkelt quiz spel. 
@@ -10,8 +11,8 @@ det jag behöver hjälp med är hur man använder socket för att conect servern
 
 ###CS3
 jort klart view code>main
-geters i controller
-skriva modellen och beskriv hur cchatten ska fungera 
+geters i client.controller
+skriva modellen och beskriv hur chatten ska fungera 
 ###CS4
 ###CS5
 ###CS6
