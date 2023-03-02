@@ -19,27 +19,31 @@ import javax.swing.*;
             frame.pack();
             frame.setVisible(true);
             frame.setSize(400,400);
-
-
+            model.Client("10.80.45.207", 1234);
             model.connect("10.80.45.207",1234);
-            model.PrintWriter(socket.getOutputStream(),
+            model.getStreams();
+            ListenerThread l = new ListenerThread(model.in, System.out);
+            Thread listener = new Thread(l);
+            listener.start();
+            //model.runProtocol();
+           // listener.join();
+            model.shutDown();
 
+//
 
 
         }
-
 
         public controller setView(view view) {
             this.view = view;
             return this;
         }
- // button1 ska skicka text från textfild till textarea
-        // button2 ska skicka ip adressen och porten till clienten
 
         public static void main(String[] args) {
             Model m = new Model();
             view v = new view();
             controller c = new controller(m, v);
+
 
 
     }
