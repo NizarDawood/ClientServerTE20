@@ -1,18 +1,22 @@
-import java.io.*;
+package Server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
-public class Server {
-    ServerSocket Server;
+public class Smodel {
+    ServerSocket server;
     Socket client;
 
     PrintWriter out;
     BufferedReader in;
 
-    public Server(int port) {
+    public Smodel(int port) {
         try {
-            Server = new ServerSocket(port);
+            server = new ServerSocket(port);
         } catch (IOException e) {
             System.err.println("Failed to open serversocket.");
             e.printStackTrace();
@@ -20,9 +24,10 @@ public class Server {
         System.out.println("Server started...");
     }
 
-    private void acceptClient() {
+
+    void acceptClient() {
         try {
-            client = Server.accept();
+            client = server.accept();
         } catch (IOException e) {
             System.err.println("Failed to connect to client");
             e.printStackTrace();
@@ -30,7 +35,7 @@ public class Server {
         System.out.println("client connected...");
     }
 
-    private void getStreams() {
+    void getStreams() {
         try {
             out = new PrintWriter(client.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -40,33 +45,14 @@ public class Server {
         System.out.println("Streams ready...");
     }
 
-    private void runProtocol() {
-        Scanner tgb = new Scanner(System.in);
-        System.out.println("chatting...");
-        String msg = "";
-        while (!msg.equals("QUIT")) {
-            msg = tgb.nextLine();
-            out.println("SERVER: " + msg);
-        }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        Server s = new Server(1234);
-        s.acceptClient();
-        s.getStreams();
-        ListenerThread l = new ListenerThread(s.in, System.out);
-        Thread listener = new Thread(l);
-        listener.start();
-        s.runProtocol();
-        listener.join();
-        s.shutdown();
-    }
-
-    private void shutdown() {
+    public void shutdown() {
         try {
             client.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }
+

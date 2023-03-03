@@ -58,15 +58,8 @@ public class Model {
         }
     }
 
-
-
-
-
-
-
-
-
-
+    public void acceptClient() {
+    }
 
 
 // sicka text till text area när du trycker på enter

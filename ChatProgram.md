@@ -1,6 +1,6 @@
 # Uppgift nätverk
 Din uppgift är att skriva ett chatprogram som utnyttjar TCP/IP och Sockets i Java för att kommunicera över nätverket. 
-Programmet ska bestå av två delar, en server och en klient, och båda ska vara strukturerade enligt MVC på samma sätt som 
+Programmet ska bestå av två delar, en Server och en klient, och båda ska vara strukturerade enligt MVC på samma sätt som 
 de andra programmen ni arbetat med under kursen. Genom att använda MVC kan vi använda detta program som grund för andra 
 typer av nätverksprogram. Byt view till ett schackbräde och bygg ut modellen till att hantera schackdrag så har ni ett online schack.  
 
@@ -10,7 +10,7 @@ och funktioner som behövs för att lösa uppgiften. I Modellen ska all kod som 
 med Sockets och BufferedReader/PrintWriter finns här. Controllerns uppgift är att sköta kommunikationen mellan View och client.Model.
 
 Ditt program ska kunna göra
-* Ansluta en klient till en server
+* Ansluta en klient till en Server
 * Använda guit för att skicka och ta emot meddelanden. 
 * Programmen ska hantera skicka och ta emot simultant (samtidigt) med hjälp av trådar.
 
@@ -22,8 +22,8 @@ Eftersom inkommande trafik landar i client.Model finns det inget naturligt sätt
 information från modellen och presentera den i View. Finns det en renderingsloop som i game-of-life är detta inget problem men 
 annars kan ni böja lite på reglerna och tillåta att modellen talar om för kontrollern att det finns ny information.
 
-Eftersom server och klient eventuellt gör olika saker behöver ni fundera på om det behövs olika versioner av tråden som 
-lyssnar, en för klienten och en för servern. Best practise är att låta servern vara bara server och ha två instanser av 
+Eftersom Server och klient eventuellt gör olika saker behöver ni fundera på om det behövs olika versioner av tråden som 
+lyssnar, en för klienten och en för servern. Best practise är att låta servern vara bara Server och ha två instanser av 
 klienten men det är inget krav. Om ni öppnar upp för flera klienter blir dock detta nästan ett krav.
 
 Strukturera koden med package så att ni inte blandar ihop servern och klienten.
@@ -38,8 +38,8 @@ Strukturera koden med package så att ni inte blandar ihop servern och klienten.
 * Lägg till funktionerna en efter en
 
 ## Förslag på ytterligare funktionalitet
-* Skriv servern så att den kan hantera flera klienter. Det räcker egentligen med två klienter och en server som bara är 
-server, då kan programmet utökas oavsett. För att lösa detta behöver servern skapa nya trådar för varje klient och det 
+* Skriv servern så att den kan hantera flera klienter. Det räcker egentligen med två klienter och en Server som bara är 
+Server, då kan programmet utökas oavsett. För att lösa detta behöver servern skapa nya trådar för varje klient och det 
 är en god idé att göra en egen klass för klientens funktioner i serverprogrammet.
 * Ge klienterna ett unikt id så att en klient kan skicka något direkt till en annan klient
 * Lägg till "bottar" på servern som reagerar på speciella kommandon eller frågor, "Vad är klockan?", "vilka är med i chatten?" 
